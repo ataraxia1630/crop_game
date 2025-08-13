@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://qfy6ownn2soo"]
+[gd_scene load_steps=52 format=3 uid="uid://qfy6ownn2soo"]
 
 [ext_resource type="Script" uid="uid://bugj7ua06ekum" path="res://scenes/characters/player/player.gd" id="1_6avc5"]
 [ext_resource type="Texture2D" uid="uid://cp8fr22bc5t3f" path="res://assets/game/characters/basic_charakter_spritesheet.png" id="1_7uws0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://od8sety7fg0p" path="res://scenes/characters/player/idle_state.gd" id="4_hss88"]
 [ext_resource type="Script" uid="uid://cqhcxj10ofj4f" path="res://scenes/characters/player/walk_state.gd" id="5_qd3e3"]
 [ext_resource type="Script" uid="uid://ovf4rkjknje5" path="res://scenes/characters/player/tool_using_state.gd" id="7_mk55u"]
+[ext_resource type="PackedScene" uid="uid://dmik2udhass1" path="res://scenes/components/hit_component.tscn" id="8_xuses"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kqyw"]
 atlas = ExtResource("2_t61fv")
@@ -394,6 +395,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_t61fv"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_42irl"]
+radius = 4.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_6avc5")
@@ -402,8 +406,9 @@ current_tool = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_6avc5")
-animation = &"idle_front"
+animation = &"watering_back"
 autoplay = "idle_front"
+frame_progress = 0.722413
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
@@ -440,3 +445,10 @@ script = ExtResource("7_mk55u")
 player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 tool = 1
+
+[node name="HitComponent" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_xuses")]
+player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_42irl")
+debug_color = Color(0.883943, 0.293978, 0.415457, 0.42)

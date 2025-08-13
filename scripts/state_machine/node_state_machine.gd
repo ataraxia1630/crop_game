@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state._on_physics_process(delta)
 		current_state._on_next_transitions()
-		print("Current State: ", current_state_name)
+		#print("Current State: ", current_state_name)
 	
 	
 
@@ -48,4 +48,4 @@ func transition_to(node_state_name : String) -> void:
 	
 	current_state = new_node_state
 	current_state_name = current_state.name.to_lower()
-	print("Current State: ", current_state_name)
+	#print("Current State: ", current_state_name)
