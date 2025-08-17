@@ -13,8 +13,8 @@ const TOOL_CONFIG = {
 		{
 			"left": {"x": -9, "y": 0},
 			"right": {"x": 9, "y": 0},
-			"up": {"x": 0, "y": -20},
-			"down": {"x": 0, "y": 2}
+			"up": {"x": 0, "y": -12},
+			"down": {"x": 0, "y": 10}
 		}
 	},
 	Tools.Hoe: {
@@ -26,8 +26,8 @@ const TOOL_CONFIG = {
 		{
 			"left": {"x": -11, "y": 0},
 			"right": {"x": 11, "y": 0},
-			"up": {"x": 3, "y": -5},
-			"down": {"x": -3, "y": -3}
+			"up": {"x": 0, "y": -10},
+			"down": {"x": 0, "y": 5}
 		}
 	},
 	Tools.WateringCan: {
@@ -38,8 +38,8 @@ const TOOL_CONFIG = {
 		{
 			"left": {"x": -21, "y": 0},
 			"right": {"x": 21, "y": 0},
-			"up": {"x": 6, "y": -10},
-			"down": {"x": -6, "y": 4}
+			"up": {"x": 0, "y": -10},
+			"down": {"x": 0, "y": 5}
 		}
 	},
 }

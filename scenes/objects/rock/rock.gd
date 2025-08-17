@@ -18,5 +18,5 @@ func _take_dmg(hit_dmg):
 
 func init_log_scene():
 	var rock_instance = rock_scene.instantiate() as Node2D
-	rock_instance.global_position = global_position
+	rock_instance.global_position = global_position + Vector2(1, 8)
 	get_parent().add_child(rock_instance)

@@ -41,5 +41,5 @@ func init_log_scene():
 	visible = false
 	var log_instance = log_scene.instantiate() as Node2D
 	print("log init")
-	log_instance.global_position = global_position
+	log_instance.global_position = global_position + Vector2(0, 8)
 	get_parent().add_child(log_instance)
