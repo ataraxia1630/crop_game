@@ -14,7 +14,7 @@ const TOOL_CONFIG = {
 			"left": {"x": -9, "y": 0},
 			"right": {"x": 9, "y": 0},
 			"up": {"x": 0, "y": -12},
-			"down": {"x": 0, "y": 10}
+			"down": {"x": 0, "y": 8}
 		}
 	},
 	Tools.Hoe: {
