@@ -7,8 +7,8 @@
 atlas = ExtResource("1_enjvq")
 region = Rect2(112, 16, 16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jae2y"]
-size = Vector2(15, 7)
+[sub_resource type="CircleShape2D" id="CircleShape2D_enjvq"]
+radius = 2.0
 
 [node name="Rock" type="Sprite2D"]
 texture = SubResource("AtlasTexture_e67ea")
@@ -16,5 +16,5 @@ texture = SubResource("AtlasTexture_e67ea")
 [node name="CollectableComponent" parent="." instance=ExtResource("2_hs2hq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_jae2y")
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_enjvq")

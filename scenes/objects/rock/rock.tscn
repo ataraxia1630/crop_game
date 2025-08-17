@@ -10,10 +10,10 @@ atlas = ExtResource("1_amaxh")
 region = Rect2(128, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kv1k"]
-radius = 6.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_amaxh"]
-radius = 6.0
+radius = 7.07107
 
 [node name="Rock" type="Sprite2D"]
 texture = SubResource("AtlasTexture_7sljv")
