@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsnubmv5x0jjx"]
+
+[ext_resource type="Texture2D" uid="uid://db34cadwxgvb1" path="res://assets/game/objects/basic_grass_biom_things.png" id="1_enjvq"]
+[ext_resource type="PackedScene" uid="uid://dox0ypxwdw1lu" path="res://scenes/components/collectable_component.tscn" id="2_hs2hq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e67ea"]
+atlas = ExtResource("1_enjvq")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jae2y"]
+size = Vector2(15, 7)
+
+[node name="Rock" type="Sprite2D"]
+texture = SubResource("AtlasTexture_e67ea")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_hs2hq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jae2y")

@@ -33,5 +33,4 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_dsyvi")
 debug_color = Color(0.648725, 0.491143, 0.476717, 0.42)
 
-[node name="DamageComponent" parent="." node_paths=PackedStringArray("hurt_component") instance=ExtResource("3_dsyvi")]
-hurt_component = NodePath("../HurtComponent")
+[node name="DamageComponent" parent="." instance=ExtResource("3_dsyvi")]
