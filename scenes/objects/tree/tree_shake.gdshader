@@ -6,10 +6,10 @@ uniform float under_y = -5.0;
 
 void vertex() {
 	vec2 shake = vec2(0.0);
-	
+
 	if(VERTEX.y < under_y) {
 		shake.x = sin(TIME * shake_speed + VERTEX.y) * shake_intensity;
-		
+
 		VERTEX.xy += shake;
 	}
 }

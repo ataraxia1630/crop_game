@@ -15,7 +15,10 @@ func _ready() -> void:
 	
 	if initial_state:
 		current_state = initial_state
+		current_state_name = initial_state.name.to_lower()
 		initial_state._on_enter()
+	print("Current State: ", current_state_name)
+	
 
 
 func _process(delta : float) -> void:
@@ -27,7 +30,6 @@ func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state._on_physics_process(delta)
 		current_state._on_next_transitions()
-		#print("Current State: ", current_state_name)
 	
 	
 
