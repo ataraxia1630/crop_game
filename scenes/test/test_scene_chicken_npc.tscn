@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://2f62lmm1vmjw" path="res://scenes/characters/chicken/chicken.tscn" id="3_pb77t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_pb77t"]
-vertices = PackedVector2Array(16.7969, 29.7422, 30.8438, 17.6328, 37.4688, 39.7109, 14.3828, 87.9219, 96.7734, 95.6484, 89.8516, 41.7969, 117.313, 78.4219)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5, 6)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(45, 30, 95, 32, 131, 80, 100, 106, 4, 97, 7, 25, 36, 0)])
+vertices = PackedVector2Array(163.047, 57.4531, 166.508, 132.703, -102.539, 125.25, -110.508, -13.6797, -0.851563, -32.8672, 66.2109, -23.0078, 143.156, -22.0938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(0, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(67, -33, 151, -32, 173, 56, 177, 143, -112, 135, -121, -22, -1, -43)])
 
 [node name="TestSceneTilemapYSort" type="Node2D"]
 y_sort_enabled = true
@@ -44,6 +44,7 @@ position = Vector2(145, 284)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Chickens" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
 position = Vector2(203, 210)
@@ -51,4 +52,16 @@ navigation_polygon = SubResource("NavigationPolygon_pb77t")
 
 [node name="Chicken" parent="Chickens" instance=ExtResource("3_pb77t")]
 y_sort_enabled = true
-position = Vector2(268, 283)
+position = Vector2(286, 317)
+
+[node name="Chicken2" parent="Chickens" instance=ExtResource("3_pb77t")]
+y_sort_enabled = true
+position = Vector2(172, 254)
+
+[node name="Chicken3" parent="Chickens" instance=ExtResource("3_pb77t")]
+y_sort_enabled = true
+position = Vector2(339, 258)
+
+[node name="Chicken4" parent="Chickens" instance=ExtResource("3_pb77t")]
+y_sort_enabled = true
+position = Vector2(242, 269)

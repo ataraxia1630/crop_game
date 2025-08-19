@@ -13,13 +13,13 @@ var min_speed: float = 5.0
 var max_speed: float = 10.0
 
 func _ready() -> void:
-	navigation_agent_2d.navigation_finished.connect(on_navigation_finished)
-
+	navigation_agent_2d.velocity_computed.connect(on_safe_velocity_computed)
+	
 # when the state become active
 func _on_enter() -> void:
 #	set timer
 	timer = Timer.new()
-	timer.wait_time = walking_timer
+	timer.wait_time = walking_timer + randf_range(-3, 5)
 	timer.one_shot = true;
 	timer.timeout.connect(on_walk_state_timeout)
 	add_child(timer)
@@ -27,6 +27,7 @@ func _on_enter() -> void:
 	timer.start()
 	
 	animated_sprite_2d.play("walk")
+	
 	set_new_target()
 	set_new_speed()
 
@@ -45,12 +46,18 @@ func _on_physics_process(_delta : float) -> void:
 	var target_pos = navigation_agent_2d.get_next_path_position()
 	var direction = chicken.global_position.direction_to(target_pos)
 	animated_sprite_2d.flip_h = direction.x < 0
-	chicken.velocity = direction * speed
-	chicken.move_and_slide()
+	
+	var velocity: Vector2 = direction * speed
+	if navigation_agent_2d.avoidance_enabled:
+		# the velocity be calculated => then call safe velocity
+		navigation_agent_2d.velocity = velocity
+	else:
+		chicken.velocity = velocity
+		chicken.move_and_slide()
 
 func _on_next_transitions() -> void:
 	#	emit the signal to turn into idle state
-	if is_walk_state_timeout:
+	if is_walk_state_timeout or navigation_agent_2d.is_navigation_finished():
 		transition.emit("idle")
 
 func on_walk_state_timeout():
@@ -66,3 +73,7 @@ func set_new_target():
 
 func set_new_speed():
 	speed = randf_range(min_speed, max_speed)
+
+func on_safe_velocity_computed(safe_velocity: Vector2):
+	chicken.velocity = safe_velocity
+	chicken.move_and_slide()
