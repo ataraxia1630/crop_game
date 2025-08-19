@@ -3,10 +3,17 @@ extends NodeState
 @export var chicken: CharacterBody2D
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var walking_timer: float = 10.0
+@export var navigation_agent_2d: NavigationAgent2D
 
 var timer: Timer
-
 var is_walk_state_timeout: bool = false
+
+var speed: float
+var min_speed: float = 5.0
+var max_speed: float = 10.0
+
+func _ready() -> void:
+	navigation_agent_2d.navigation_finished.connect(on_navigation_finished)
 
 # when the state become active
 func _on_enter() -> void:
@@ -20,7 +27,8 @@ func _on_enter() -> void:
 	timer.start()
 	
 	animated_sprite_2d.play("walk")
-	
+	set_new_target()
+	set_new_speed()
 
 # when the state is about to change
 func _on_exit() -> void:
@@ -34,7 +42,10 @@ func _on_process(_delta : float) -> void:
 	pass
 
 func _on_physics_process(_delta : float) -> void:
-	chicken.velocity.x = RandomNumberGenerator.new().randf_range(10, 15)
+	var target_pos = navigation_agent_2d.get_next_path_position()
+	var direction = chicken.global_position.direction_to(target_pos)
+	animated_sprite_2d.flip_h = direction.x < 0
+	chicken.velocity = direction * speed
 	chicken.move_and_slide()
 
 func _on_next_transitions() -> void:
@@ -44,3 +55,14 @@ func _on_next_transitions() -> void:
 
 func on_walk_state_timeout():
 	is_walk_state_timeout = true
+	
+func on_navigation_finished():
+	set_new_target()
+	set_new_speed()
+	
+func set_new_target():
+	var target: Vector2 = NavigationServer2D.map_get_random_point(navigation_agent_2d.get_navigation_map(), navigation_agent_2d.navigation_layers, false)
+	navigation_agent_2d.target_position = target
+
+func set_new_speed():
+	speed = randf_range(min_speed, max_speed)
