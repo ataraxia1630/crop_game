@@ -34,6 +34,7 @@ const TOOL_CONFIG = {
 		"state_name": "Watering",
 		"anim_prefix": "watering",
 		"duration": 0.8,
+		"hit_damage": 1,
 		"collision_position": 
 		{
 			"left": {"x": -21, "y": 0},

@@ -33,11 +33,11 @@ static func get_player_direction() -> Vector2:
 static func input_tool() -> DataTypes.Tools:
 	if is_using_tool: # Giữ công cụ hiện tại khi đang sử dụng
 		return current_tool
-	if Input.is_action_just_pressed("chopping"):
+	if Input.is_action_just_pressed("tool_axe"):
 		current_tool = DataTypes.Tools.Axe	
-	elif Input.is_action_just_pressed("tilling"):
+	elif Input.is_action_just_pressed("tool_hoe"):
 		current_tool = DataTypes.Tools.Hoe
-	elif Input.is_action_just_pressed("watering"):
+	elif Input.is_action_just_pressed("tool_watering_can"):
 		current_tool = DataTypes.Tools.WateringCan
 	else:
 		current_tool = DataTypes.Tools.None
