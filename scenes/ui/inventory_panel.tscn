@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvo1qsfd8lslv"]
+[gd_scene load_steps=17 format=3 uid="uid://bvo1qsfd8lslv"]
 
 [ext_resource type="Theme" uid="uid://bmmg280ivsy0w" path="res://theme/game_ui_theme.tres" id="1_7ck5g"]
 [ext_resource type="Texture2D" uid="uid://chvwipqadnqp" path="res://assets/game/objects/basic_tools_and_meterials.png" id="2_17uwj"]
+[ext_resource type="Script" uid="uid://ct7ec4s6upvlk" path="res://scripts/inventory_item.gd" id="2_b11k6"]
 [ext_resource type="Texture2D" uid="uid://db34cadwxgvb1" path="res://assets/game/objects/basic_grass_biom_things.png" id="3_cvy6a"]
 [ext_resource type="Texture2D" uid="uid://bunflkn7t5gnl" path="res://assets/game/objects/egg_item.png" id="4_ta3uk"]
 [ext_resource type="Texture2D" uid="uid://ds5y4v26aoakb" path="res://assets/game/objects/simple_milk_and_grass_item.png" id="5_lcq1t"]
@@ -59,10 +60,13 @@ theme_override_constants/margin_bottom = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Logs" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Logs" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "log"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Logs"]
 layout_mode = 2
@@ -77,10 +81,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Rocks" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Rocks" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "rock"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Rocks"]
 layout_mode = 2
@@ -95,10 +102,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Wheats" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Wheats" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "wheat"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Wheats"]
 layout_mode = 2
@@ -113,10 +123,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Tomatoes" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Tomatoes" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "tomato"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Tomatoes"]
 layout_mode = 2
@@ -131,10 +144,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Apples" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Apples" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "apple"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Apples"]
 layout_mode = 2
@@ -149,10 +165,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Berries" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Berries" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "berry"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Berries"]
 layout_mode = 2
@@ -167,10 +186,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Eggs" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Eggs" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "egg"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Eggs"]
 layout_mode = 2
@@ -185,10 +207,13 @@ size_flags_vertical = 8
 theme_type_variation = &"InventoryLabel"
 text = "0"
 
-[node name="Milk" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Milk" type="PanelContainer" parent="MarginContainer/VBoxContainer" node_paths=PackedStringArray("label")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_type_variation = &"InventoryItemPanel"
+script = ExtResource("2_b11k6")
+item_name = "milk"
+label = NodePath("Label")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Milk"]
 layout_mode = 2
