@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://btlm1nxc64gte"]
+
+[ext_resource type="Texture2D" uid="uid://dbye21b26m17m" path="res://assets/game/objects/basic_plants.png" id="1_8ehfv"]
+[ext_resource type="PackedScene" uid="uid://dox0ypxwdw1lu" path="res://scenes/components/collectable_component.tscn" id="2_21yqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21yqd"]
+atlas = ExtResource("1_8ehfv")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j1vp3"]
+radius = 3.59418
+height = 18.0906
+
+[node name="Wheat" type="Sprite2D"]
+texture = SubResource("AtlasTexture_21yqd")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_21yqd")]
+collectable_name = "wheat"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+rotation = 0.783693
+shape = SubResource("CapsuleShape2D_j1vp3")
